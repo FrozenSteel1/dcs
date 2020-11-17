@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Добавил аутентификацию и применил миграции от нее">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DivisionController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/WorkerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Division.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Worker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_17_152850_create_documents_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_17_152937_create_workers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_17_153017_create_divisions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/modal/updateDivision.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +33,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -163,13 +171,18 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1kPzpUVkzhEYlGjgT5ZhbGTz7tB" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -188,12 +201,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605617196805</updated>
-      <workItem from="1605617197869" duration="1673000" />
+      <workItem from="1605617197869" duration="19538000" />
     </task>
+    <task id="LOCAL-00001" summary="Добавил аутентификацию и применил миграции от нее">
+      <created>1605619091224</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605619091224</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Добавил аутентификацию и применил миграции от нее" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил аутентификацию и применил миграции от нее" />
   </component>
   <component name="WindowStateProjectService">
     <state x="784" y="387" key="Github.ShareDialog" timestamp="1605618276679">
@@ -204,5 +230,17 @@
       <screen x="0" y="0" width="1810" height="978" />
     </state>
     <state x="675" y="186" key="Github.UntrackedFilesDialog/0.0.1810.978@0.0.1810.978" timestamp="1605618292840" />
+    <state x="740" y="413" key="NewPhpFileDialog" timestamp="1605630147257">
+      <screen x="0" y="0" width="1810" height="978" />
+    </state>
+    <state x="740" y="413" key="NewPhpFileDialog/0.0.1810.978@0.0.1810.978" timestamp="1605630147257" />
+    <state x="498" y="222" key="Vcs.Push.Dialog.v2" timestamp="1605619094828">
+      <screen x="0" y="0" width="1810" height="978" />
+    </state>
+    <state x="498" y="222" key="Vcs.Push.Dialog.v2/0.0.1810.978@0.0.1810.978" timestamp="1605619094828" />
+    <state x="636" y="220" width="579" height="534" key="find.popup" timestamp="1605638310307">
+      <screen x="0" y="0" width="1810" height="978" />
+    </state>
+    <state x="636" y="220" width="579" height="534" key="find.popup/0.0.1810.978@0.0.1810.978" timestamp="1605638310307" />
   </component>
 </project>
