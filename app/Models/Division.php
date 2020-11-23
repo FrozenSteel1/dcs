@@ -9,4 +9,10 @@ class Division extends Model
 {
     use HasFactory;
     protected  $guarded=[''];
+    public static function searchDivision($searchDivision)
+    {
+
+        return empty($searchDivision) ? static::query()
+            : static::query()->where('division_name', 'like', '%'.$searchDivision.'%');
+    }
 }

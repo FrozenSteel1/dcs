@@ -73,7 +73,8 @@
     </table>
     {!! $documents->links() !!}
     <div>
-        @include('modal.createDivision')
+{{--       @include('modal.createDivision')--}}
+              @include('modal.createDocument')
         @if (session()->has('message'))
             <div class="alert alert-success" style="margin-top:30px;">x
                 {{ session('message') }}
