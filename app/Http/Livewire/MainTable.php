@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Document;
+use App\Models\Worker;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -18,6 +19,8 @@ class MainTable extends Component
     public $document_name, $document_number, $document_area, $document_id,
         $document_responsible_id, $document_signer_id, $document_tags, $document_date_signing,
         $document_date_expired, $document_data;
+    public $worker_name, $worker_surname, $worker_id, $worker_email, $worker_email_spare, $worker_tel
+    , $worker_tel_spare, $worker_position, $worker_patronymic;
     public $documents, $divisions;
     public $perPage = 10;
     public $search = '';
@@ -31,6 +34,26 @@ class MainTable extends Component
     {
         $this->division_name = '';
         $this->division_parent_name = '';
+        $this->worker_name='';
+        $this->worker_surname='';
+        $this->worker_id='';
+        $this->worker_email='';
+        $this->worker_email_spare='';
+        $this->worker_tel='';
+        $this->worker_tel_spare='';
+        $this->worker_position='';
+        $this->worker_patronymic='';
+        $this->document_name='';
+        $this->document_number='';
+        $this->document_area='';
+        $this->document_id='';
+        $this->document_responsible_id='';
+        $this->document_signer_id='';
+        $this->document_tags='';
+        $this->document_date_signing='';
+        $this->document_date_expired='';
+        $this->document_data='';
+
     }
 
     public function storeDocument()
@@ -54,11 +77,39 @@ class MainTable extends Component
 
         $this->resetInputFields();
 
-        $this->emit('divisionStore'); // Close model to using to jquery
+        $this->emit('documentStore'); // Close model to using to jquery
 
     }
 
-    public function store()
+    public function storeWorker()
+    {
+
+        $validatedDate = $this->validate([
+
+            'worker_name' => 'required',
+            'worker_surname' => 'required',
+            'worker_id' => '',
+            'worker_email' => 'email',
+            'worker_email_spare' => 'email',
+            'worker_tel' => '',
+            'worker_tel_spare' => '',
+            'worker_position' => '',
+            'division_id' => '',
+            'worker_patronymic' => '',
+
+        ]);
+
+        Worker::create($validatedDate);
+
+        session()->flash('message', 'Работник успешно добавлен');
+
+        $this->resetInputFields();
+
+        $this->emit('workerStore'); // Close model to using to jquery
+
+    }
+
+    public function storeDivision()
     {
         $validatedDate = $this->validate([
             'division_name' => 'required',
@@ -124,7 +175,6 @@ class MainTable extends Component
         }
     }
 
-
     public function render(): string
     {
 
@@ -132,6 +182,7 @@ class MainTable extends Component
             'documents' => Document::search($this->search)
                 ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->perPage),
+
 
         ]);
 

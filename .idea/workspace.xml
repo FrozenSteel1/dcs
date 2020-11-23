@@ -19,13 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Сделал добавление дивизионов начинаю добавление документов">
+    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Создал заполнялку для доков начинаю тестировать выпадающую меню для дивизионов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Division.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Division.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="ModalTest" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -206,7 +207,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605617196805</updated>
       <workItem from="1605617197869" duration="20441000" />
-      <workItem from="1606134348357" duration="3947000" />
+      <workItem from="1606134348357" duration="9914000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил аутентификацию и применил миграции от нее">
       <created>1605619091224</created>
@@ -236,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606134397728</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Создал заполнялку для доков начинаю тестировать выпадающую меню для дивизионов">
+      <created>1606138426154</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606138426154</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,9 +266,14 @@
     <MESSAGE value="Добавил аутентификацию и применил миграции от нее" />
     <MESSAGE value="Сделал добавление дивизионов" />
     <MESSAGE value="Сделал добавление дивизионов начинаю добавление документов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал добавление дивизионов начинаю добавление документов" />
+    <MESSAGE value="Создал заполнялку для доков начинаю тестировать выпадающую меню для дивизионов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Создал заполнялку для доков начинаю тестировать выпадающую меню для дивизионов" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="636" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606140409154">
+      <screen x="0" y="0" width="1810" height="978" />
+    </state>
+    <state x="636" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1810.978@0.0.1810.978" timestamp="1606140409154" />
     <state x="784" y="387" key="Github.ShareDialog" timestamp="1605618276679">
       <screen x="0" y="0" width="1810" height="978" />
     </state>

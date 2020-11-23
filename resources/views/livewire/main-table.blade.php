@@ -50,6 +50,9 @@
             </div>
         </div>
     </div>
+    @include('modal.createDocument')
+    @include('modal.createDivision')
+    @include('modal.createWorker')
     <table class="table-auto w-full mb-6">
         <thead>
         <tr>
@@ -73,8 +76,10 @@
     </table>
     {!! $documents->links() !!}
     <div>
-{{--       @include('modal.createDivision')--}}
-              @include('modal.createDocument')
+
+
+
+
         @if (session()->has('message'))
             <div class="alert alert-success" style="margin-top:30px;">x
                 {{ session('message') }}

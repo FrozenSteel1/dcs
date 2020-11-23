@@ -45,6 +45,16 @@
                 $('#exampleModal').modal('hide');
             });
         </script>
+        <script type="text/javascript">
+            window.livewire.on('documentStore', () => {
+                $('#documentModal').modal('hide');
+            });
+        </script>
+        <script type="text/javascript">
+            window.livewire.on('workerStore', () => {
+                $('#workerModal').modal('hide');
+            });
+        </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
