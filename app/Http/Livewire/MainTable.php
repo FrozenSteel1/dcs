@@ -111,10 +111,12 @@ class MainTable extends Component
 
     public function storeDivision()
     {
+
         $validatedDate = $this->validate([
-            'division_name' => 'required',
-            'division_parent_name' => 'required',
+            'division_name' => '',
+            'division_parent_name' => '',
         ]);
+        dd($this);
 
         Division::create($validatedDate);
 
@@ -175,13 +177,23 @@ class MainTable extends Component
         }
     }
 
+    public function searching()
+    {
+        $this->divisions = Division::where('division_name', 'like', '%' . $this->search . '%')
+
+            ->get()
+            ->toArray();
+    }
     public function render(): string
     {
+       $this->searching();
+
 
         return view('livewire.main-table', [
             'documents' => Document::search($this->search)
                 ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->perPage),
+            'divisions'=>$this->divisions,
 
 
         ]);

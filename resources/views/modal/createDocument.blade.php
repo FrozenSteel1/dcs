@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-group">
                         <label for="document_data">Файлы</label>
-                        <input  type="file" multiple="multiple" class="form-control" id="document_tags" wire:model="document_data" placeholder="Выберите файлы">
+                        <input  type="file" multiple="multiple" class="form-control" id="document_data" wire:model="document_data" placeholder="Выберите файлы">
                         @error('document_data') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
 
