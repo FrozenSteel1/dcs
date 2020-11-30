@@ -25,8 +25,18 @@
                         @error('document_number') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
+                        <label for="document_type">Тип документа</label>
+                        <input type="text" class="form-control" id="document_type" wire:model="document_type" placeholder="Тип документа">
+                        @error('document_type') <span class="text-danger error">{{ $message }}</span>@enderror
+                    </div>
+                    <div class="form-group">
                         <label for="document_area">Действие</label>
-                        <input  type="text" class="form-control" id="document_area" wire:model="document_area" placeholder="На кого распространяется">
+                        <input autocomplete="off" list="devisionsList1" type="text" class="form-control" id="document_area" wire:model.lazy="document_area" placeholder="На кого распространяется">
+                        <datalist id="devisionsList1">
+                            @foreach($divisions as $division)
+                                <option value="{{$division['division_name']}}"></option>
+                            @endforeach
+                        </datalist>
                         @error('document_area') <span class="text-danger error">{{ $message }}</span>@enderror
 
                     </div>
@@ -34,12 +44,22 @@
 
                     <div class="form-group">
                         <label for="document_responsible_id">Ответственные</label>
-                        <input type="text" class="form-control" id="document_responsible_id" wire:model="document_responsible_id" placeholder="Ответственные через запятую">
+                        <input autocomplete="off" list="workerList1" type="text" class="form-control" id="document_responsible_id" wire:model.lazy="document_responsible_id" placeholder="Ответственные через запятую">
+                        <datalist id="workerList1">
+                            @foreach($workers as $worker)
+                                <option value="{{$worker['worker_surname'].' '.$worker['worker_name'].' '.$worker['worker_patronymic'].' '.$worker['worker_position']}}"></option>
+                            @endforeach
+                        </datalist>
                         @error('document_responsible_id') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
                         <label for="document_signer_id">Подписчик</label>
-                        <input type="text" class="form-control" id="document_signer_id" wire:model="document_signer_id" placeholder="Подписанты">
+                        <input autocomplete="off" list="workerList2" type="text" class="form-control" id="document_signer_id" wire:model.lazy="document_signer_id" placeholder="Подписанты">
+                        <datalist id="workerList2">
+                            @foreach($workers as $worker)
+                                <option value="{{$worker['worker_surname']}}"></option>
+                            @endforeach
+                        </datalist>
                         @error('document_signer_id') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">

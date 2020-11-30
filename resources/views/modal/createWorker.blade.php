@@ -51,7 +51,12 @@
                     </div>
                     <div class="form-group">
                         <label for="division_id">Подразделение</label>
-                        <input type="text" class="form-control" id="division_id" wire:model="division_id" placeholder="Подразделение">
+                        <input autocomplete="off" list="devisionsList1" type="text" class="form-control" id="division_id" wire:model.lazy="division_id" placeholder="Подразделение">
+                        <datalist id="devisionsList1">
+                            @foreach($divisions as $division)
+                                <option value="{{$division['division_name']}}"></option>
+                            @endforeach
+                        </datalist>
                         @error('division_id') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">

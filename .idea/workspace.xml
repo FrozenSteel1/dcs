@@ -19,14 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Все еще работает)">
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/InputAutocomplete.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/input-autocomplete.blade.php" afterDir="false" />
+    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Чудо свершилось дивизионы заработали">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_17_152850_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_17_152850_create_documents_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,9 +185,9 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -207,7 +205,9 @@
       <option name="presentableId" value="Default" />
       <updated>1605617196805</updated>
       <workItem from="1605617197869" duration="20441000" />
-      <workItem from="1606134348357" duration="21645000" />
+      <workItem from="1606134348357" duration="23040000" />
+      <workItem from="1606732843557" duration="1201000" />
+      <workItem from="1606758280793" duration="1430000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил аутентификацию и применил миграции от нее">
       <created>1605619091224</created>
@@ -258,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606147919957</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Чудо свершилось дивизионы заработали">
+      <created>1606159131806</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1606159131806</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +281,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -282,7 +290,8 @@
     <MESSAGE value="Сделал добавление дивизионов начинаю добавление документов" />
     <MESSAGE value="Создал заполнялку для доков начинаю тестировать выпадающую меню для дивизионов" />
     <MESSAGE value="Все еще работает)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Все еще работает)" />
+    <MESSAGE value="Чудо свершилось дивизионы заработали" />
+    <option name="LAST_COMMIT_MESSAGE" value="Чудо свершилось дивизионы заработали" />
   </component>
   <component name="WindowStateProjectService">
     <state x="636" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606140409154">
@@ -301,6 +310,10 @@
       <screen x="0" y="0" width="1810" height="978" />
     </state>
     <state x="740" y="413" key="NewPhpFileDialog/0.0.1810.978@0.0.1810.978" timestamp="1605630147257" />
+    <state x="407" y="134" key="SettingsEditor" timestamp="1606758702368">
+      <screen x="0" y="0" width="1810" height="978" />
+    </state>
+    <state x="407" y="134" key="SettingsEditor/0.0.1810.978@0.0.1810.978" timestamp="1606758702368" />
     <state x="498" y="222" key="Vcs.Push.Dialog.v2" timestamp="1605619094828">
       <screen x="0" y="0" width="1810" height="978" />
     </state>

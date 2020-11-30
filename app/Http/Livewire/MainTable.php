@@ -18,10 +18,10 @@ class MainTable extends Component
     public $division_name, $division_parent_name, $division_id;
     public $document_name, $document_number, $document_area, $document_id,
         $document_responsible_id, $document_signer_id, $document_tags, $document_date_signing,
-        $document_date_expired, $document_data;
+        $document_date_expired, $document_data ,$document_type;
     public $worker_name, $worker_surname, $worker_id, $worker_email, $worker_email_spare, $worker_tel
     , $worker_tel_spare, $worker_position, $worker_patronymic;
-    public $documents, $divisions;
+    public $documents, $divisions,$workers;
     public $perPage = 10;
     public $search = '';
     public $searchDivision = '';
@@ -53,6 +53,8 @@ class MainTable extends Component
         $this->document_date_signing='';
         $this->document_date_expired='';
         $this->document_data='';
+        $this->document_type='';
+
 
     }
 
@@ -63,6 +65,7 @@ class MainTable extends Component
             'document_number' => 'required',
             'document_area' => '',
             'document_data' => '',
+            'document_type'=>'',
             'document_date_expired' => '',
             'document_date_signing' => '',
             'document_tags' => '',
@@ -71,6 +74,7 @@ class MainTable extends Component
         ]);
 
         dd($validatedDate);
+
         Document::create($validatedDate);
 
         session()->flash('message', 'Divisions Created Successfully.');
@@ -184,16 +188,26 @@ class MainTable extends Component
             ->get()
             ->toArray();
     }
+
+    public function searchWorkers()
+    {
+        $this->workers = Worker::where('worker_surname', 'like', '%' . $this->search . '%')
+
+            ->get()
+            ->toArray();
+    }
+
     public function render(): string
     {
        $this->searching();
-
+$this->searchWorkers();
 
         return view('livewire.main-table', [
             'documents' => Document::search($this->search)
                 ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->perPage),
             'divisions'=>$this->divisions,
+            'workers'=>$this->workers,
 
 
         ]);
