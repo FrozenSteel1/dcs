@@ -16,15 +16,21 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:Косячу" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Чудо свершилось дивизионы заработали">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_17_152850_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_17_152850_create_documents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="СоздаюАвтокомплит" />
+        <entry key="$PROJECT_DIR$" value="4ecfa388b6626fc18eb71fe82d478eeffd807b52" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -276,7 +282,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Косячу" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

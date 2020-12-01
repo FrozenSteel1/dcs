@@ -60,6 +60,7 @@ class MainTable extends Component
 
     public function storeDocument()
     {
+
         $validatedDate = $this->validate([
             'document_name' => 'required',
             'document_number' => 'required',
@@ -73,11 +74,11 @@ class MainTable extends Component
             'document_signer_id' => '',
         ]);
 
-        dd($validatedDate);
+
 
         Document::create($validatedDate);
 
-        session()->flash('message', 'Divisions Created Successfully.');
+        session()->flash('message', 'Документ добавлен все хорошо');
 
         $this->resetInputFields();
 
@@ -200,12 +201,16 @@ class MainTable extends Component
     public function render(): string
     {
        $this->searching();
-$this->searchWorkers();
+       $this->searchWorkers();
+
+
+
+
 
         return view('livewire.main-table', [
             'documents' => Document::search($this->search)
-                ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
-                ->simplePaginate($this->perPage),
+            ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+            ->simplePaginate($this->perPage),
             'divisions'=>$this->divisions,
             'workers'=>$this->workers,
 

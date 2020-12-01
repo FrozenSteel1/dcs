@@ -57,7 +57,7 @@
                         <input autocomplete="off" list="workerList2" type="text" class="form-control" id="document_signer_id" wire:model.lazy="document_signer_id" placeholder="Подписанты">
                         <datalist id="workerList2">
                             @foreach($workers as $worker)
-                                <option value="{{$worker['worker_surname']}}"></option>
+                                <option value="{{$worker['worker_surname'].' '.$worker['worker_name'].' '.$worker['worker_patronymic'].' '.$worker['worker_position']}}"></option>
                             @endforeach
                         </datalist>
                         @error('document_signer_id') <span class="text-danger error">{{ $message }}</span>@enderror

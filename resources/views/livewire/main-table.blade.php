@@ -56,25 +56,25 @@
     <table class="table-auto w-full mb-6">
         <thead>
         <tr>
-            <th class="px-4 py-2">ID</th>
-            <th class="px-4 py-2">Название</th>
             <th class="px-4 py-2">Номер</th>
+            <th class="px-4 py-2">Название</th>
             <th class="px-4 py-2">Дата подписания</th>
         </tr>
         </thead>
+
         <tbody>
 
         @foreach($documents as $document)
             <tr>
-                <td class="border px-4 py-2">{{ $document->id }}</td>
-                <td class="border px-4 py-2">{{ $document->document_name }}</td>
                 <td class="border px-4 py-2">{{ $document->document_number }}</td>
-                <td class="border px-4 py-2">{{ $document->document_date_signing->diffForHumans() }}</td>
+                <td class="border px-4 py-2">{{ $document->document_name }}</td>
+                <td class="border px-4 py-2">{{ $document->document_date_signing}}</td>
             </tr>
         @endforeach
         </tbody>
+
     </table>
-    {!! $documents->links() !!}
+{{--    {!! $documents->links() !!}--}}
     <div>
 
 

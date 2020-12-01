@@ -9,6 +9,13 @@ class Document extends Model
 {
     use HasFactory;
     protected  $guarded=[''];
+    protected $casts=[
+       'document_area'=>'array' ,
+        'document_responsible_id'=>'array' ,
+        'document_signer_id'=>'array' ,
+        'document_tags'=>'array' ,
+        'document_data'=>'array' ,
+    ];
     public static function search($search)
     {
 
