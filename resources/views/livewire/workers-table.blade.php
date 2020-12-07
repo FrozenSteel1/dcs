@@ -4,15 +4,16 @@
         <div class="w-3/6 mx-1">
             <input wire:model.debounce.300ms="search" type="text"
                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                   placeholder="Поиск документов...">
+                   placeholder="Поиск работников...">
         </div>
         <div class="w-1/6 relative mx-1">
             <select wire:model="orderBy"
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state">
-                <option value="document_name">Название</option>
-                <option value="document_number">Номер</option>
-                <option value="created_at">Дата подписания</option>
+                <option value="worker_name">Имя</option>
+                <option value="worker_surname">Фамилия</option>
+                <option value="worker_patronymic">Отчетсво</option>
+
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -49,44 +50,35 @@
             </div>
         </div>
     </div>
-    @include('modal.createDocument')
-    @include('modal.createDivision')
     @include('modal.createWorker')
+
     <table class="table-auto table-hover w-full mb-6">
         <thead>
         <tr>
-            <th class="px-4 py-2">Номер</th>
-            <th class="px-4 py-2">Тип</th>
-            <th class="px-4 py-2">Название</th>
-            <th class="px-4 py-2">Подписант</th>
-            <th class="px-4 py-2">Дата подписания</th>
-            <th class="px-4 py-2">Ответственный</th>
-            <th class="px-4 py-2">Дата пересмотра</th>
+            <th class="px-4 py-2">Имя</th>
+            <th class="px-4 py-2">Фамилия</th>
+            <th class="px-4 py-2">Отчетсво</th>
         </tr>
         </thead>
 
         <tbody>
 
-        @foreach($documents as $document)
 
-            <tr data-toggle="modal" data-target="#documentModal" wire:click="editDocument({{$document->id}})">
-                <td class="border px-4 py-2">{{ $document->document_number }}</td>
-                <td class="border px-4 py-2">{{ $document->document_type }}</td>
-                <td class="border px-4 py-2">{{ $document->document_name }}</td>
-                <td class="border px-4 py-2">{{ $document->document_signer_id }}</td>
-                <td class="border px-4 py-2">{{ $document->document_date_signing}}</td>
-                <td class="border px-4 py-2">{{ $document->document_responsible_id}}</td>
-                <td class="border px-4 py-2">{{ $document->document_date_expired}}</td>
-                <td class="border px-4 py-2">
-                    <button type="button" wire:click="download({{$document_id}})" class="btn btn-primary">Скачать
-                    </button></td>
+        @foreach($workersSearch as $worker)
+
+
+            <tr data-toggle="modal" data-target="#workerModal" wire:click="editWorker({{$worker->id}})">
+                <td class="border px-4 py-2">{{ $worker->worker_name }}</td>
+                <td class="border px-4 py-2">{{ $worker->worker_surname }}</td>
+                <td class="border px-4 py-2">{{ $worker->worker_patronymic }}</td>
+
             </tr>
 
         @endforeach
         </tbody>
 
     </table>
-    {{--    {!! $documents->links() !!}--}}
+    {!! $workersSearch->links() !!}
     <div>
 
 
@@ -99,3 +91,4 @@
     </div>
 
 </div>
+

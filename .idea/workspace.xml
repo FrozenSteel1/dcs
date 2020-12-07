@@ -25,15 +25,22 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Чудо свершилось дивизионы заработали">
-      <change afterPath="$PROJECT_DIR$/resources/views/divisions.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/workers.blade.php" afterDir="false" />
+    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Завершил страницу начинаю делать таблицы воркеров и дивизионов">
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/DivisionsTable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/WorkersTable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/divisions-table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/workers-table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Division.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Division.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Worker.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Worker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/divisionsTable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/divisionsTable.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/workersTable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/workersTable.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +54,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="4ecfa388b6626fc18eb71fe82d478eeffd807b52" />
+        <entry key="$PROJECT_DIR$" value="DivPage" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -218,7 +225,7 @@
       <workItem from="1606732843557" duration="1201000" />
       <workItem from="1606758280793" duration="1430000" />
       <workItem from="1607327731461" duration="2000" />
-      <workItem from="1607356819506" duration="3264000" />
+      <workItem from="1607356819506" duration="15006000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил аутентификацию и применил миграции от нее">
       <created>1605619091224</created>
@@ -276,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606159131806</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Завершил страницу начинаю делать таблицы воркеров и дивизионов">
+      <created>1607361388572</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607361388572</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,13 +328,18 @@
     <MESSAGE value="Создал заполнялку для доков начинаю тестировать выпадающую меню для дивизионов" />
     <MESSAGE value="Все еще работает)" />
     <MESSAGE value="Чудо свершилось дивизионы заработали" />
-    <option name="LAST_COMMIT_MESSAGE" value="Чудо свершилось дивизионы заработали" />
+    <MESSAGE value="Завершил страницу начинаю делать таблицы воркеров и дивизионов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Завершил страницу начинаю делать таблицы воркеров и дивизионов" />
   </component>
   <component name="WindowStateProjectService">
     <state x="636" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606140409154">
       <screen x="0" y="0" width="1810" height="978" />
     </state>
     <state x="636" y="236" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1810.978@0.0.1810.978" timestamp="1606140409154" />
+    <state x="636" y="244" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607365663044">
+      <screen x="0" y="0" width="1810" height="978" />
+    </state>
+    <state x="636" y="244" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1810.978@0.0.1810.978" timestamp="1607365663044" />
     <state x="784" y="387" key="Github.ShareDialog" timestamp="1605618276679">
       <screen x="0" y="0" width="1810" height="978" />
     </state>
@@ -345,5 +364,9 @@
       <screen x="0" y="0" width="1810" height="978" />
     </state>
     <state x="636" y="220" width="579" height="534" key="find.popup/0.0.1810.978@0.0.1810.978" timestamp="1605638310307" />
+    <state x="564" y="227" key="run.anything.popup" timestamp="1607369834697">
+      <screen x="0" y="0" width="1810" height="978" />
+    </state>
+    <state x="564" y="227" key="run.anything.popup/0.0.1810.978@0.0.1810.978" timestamp="1607369834697" />
   </component>
 </project>

@@ -214,11 +214,26 @@ class MainTable extends Component
         }
     }
 
-    public function delete($id)
+    public function deleteDivision($id)
     {
         if ($id) {
             Division::where('id', $id)->delete();
-            session()->flash('message', 'Divisions Deleted Successfully.');
+            session()->flash('message', 'Подразделение расформировано.');
+        }
+        $this->emit('documentStore'); // Close model to using to jquery
+    }
+    public function deleteWorker($id)
+    {
+        if ($id) {
+            Worker::where('id', $id)->delete();
+            session()->flash('message', 'Работника уволили.');
+        }
+    }
+    public function deleteDocument($id)
+    {
+        if ($id) {
+            Document::where('id', $id)->delete();
+            session()->flash('message', 'Документа больше нет.');
         }
     }
 
@@ -253,6 +268,9 @@ class MainTable extends Component
             ->simplePaginate($this->perPage),
             'divisions'=>$this->divisions,
             'workers'=>$this->workers,
+            'worker_id'=>$this->worker_id,
+            'division_id'=>$this->division_id,
+            'document_id'=>$this->document_id,
 
 
         ]);

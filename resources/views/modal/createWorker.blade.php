@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#workerModal">
+<button wire:click.prevent="cancel()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#workerModal">
     Добавить Работника
 </button>
 
@@ -14,6 +14,11 @@
             </div>
             <div class="modal-body">
                 <form>
+                    <div class="form-group hidden">
+                        <label for="worker_id">ID</label>
+                        <input type="text" class="form-control" id="worker_id" placeholder="ID" wire:model="worker_id">
+                        @error('worker_id') <span class="text-danger error">{{ $message }}</span>@enderror
+                    </div>
                     <div class="form-group">
                         <label for="worker_name">Имя</label>
                         <input type="text" class="form-control" id="worker_name" placeholder="Имя" wire:model="worker_name">
@@ -68,6 +73,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Закрыть</button>
+                <button type="button" wire:click.prevent="deleteWorker({{$worker_id}})" class="btn btn-primary close-modal">Удалить</button>
                 <button type="button" wire:click.prevent="storeWorker()" class="btn btn-primary close-modal">Добавить</button>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button wire:click.prevent="cancel()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Добавить подразделение
 </button>
 
@@ -18,6 +18,7 @@
                         <label for="exampleFormControlInput2">Подчинение</label>
                         <input autocomplete="off" list="devisionsList2" type="text" class="form-control" id="exampleFormControlInput2" wire:model.lazy="division_parent_name" placeholder="В подчинении">
                         <datalist id="devisionsList2">
+
                             @foreach($divisions as $division)
                                 <option value="{{$division['division_name']}}"></option>
                             @endforeach
@@ -44,6 +45,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Закрыть</button>
+                <button type="button" wire:click.prevent="deleteDivision({{$division_id}})" class="btn btn-primary close-modal">Удалить</button>
                 <button type="button"  wire:click.prevent="storeDivision()" class="btn btn-primary close-modal">Добавить</button>
             </div>
         </div>

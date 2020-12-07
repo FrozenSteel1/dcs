@@ -13,6 +13,7 @@ class Division extends Model
     {
 
         return empty($searchDivision) ? static::query()
-            : static::query()->where('division_name', 'like', '%'.$searchDivision.'%');
+            : static::query()->where('division_name', 'like', '%'.$searchDivision.'%')
+                ->orWhere('division_parent_name', 'like', '%'.$searchDivision.'%');
     }
 }
