@@ -135,7 +135,7 @@ class MainTable extends Component
 
     public function edit($id)
     {
-
+        dd('edit');
         $this->updateMode = true;
 
         $division = Division::where('id', $id)->first();
@@ -145,9 +145,49 @@ class MainTable extends Component
         $this->division_parent_name = $division->division_parent_name;
 
     }
+    public function editWorker($id)
+    {
+        dd('edieditWorkert');
+        $this->updateMode = true;
+
+        $division = Division::where('id', $id)->first();
+
+        $this->division_id = $id;
+        $this->division_name = $division->division_name;
+        $this->division_parent_name = $division->division_parent_name;
+
+    }
+    public function editDocument($id)
+    {
+
+        $this->updateMode = true;
+
+        $document = Document::where('id', $id)->first();
+
+        $this->document_id = $id;
+        $this->document_name = $document->document_name;
+        $this->document_number = $document->document_number;
+        $this->document_type = $document->document_type;
+        $this->document_area = $document->document_area;
+        $this->document_responsible_id = $document->document_responsible_id;
+        $this->document_worker_id = $document->document_worker_id;
+        $this->document_signer_id = $document->document_signer_id;
+        $this->document_date_signing = $document->document_date_signing;
+        $this->document_date_expired = $document->document_date_expired;
+        $this->document_data = $document->document_data;
+
+    }
 
     public function cancel()
     {
+        $this->updateMode = false;
+        $this->resetInputFields();
+
+
+    }
+    public function cancelDocument()
+    {
+
         $this->updateMode = false;
         $this->resetInputFields();
 

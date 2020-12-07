@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#documentModal">
+<button wire:click.prevent="cancelDocument()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#documentModal">
     Добавить документ
 </button>
 

@@ -26,11 +26,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Чудо свершилось дивизионы заработали">
+      <change afterPath="$PROJECT_DIR$/resources/views/divisions.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/workers.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +217,8 @@
       <workItem from="1606134348357" duration="23040000" />
       <workItem from="1606732843557" duration="1201000" />
       <workItem from="1606758280793" duration="1430000" />
+      <workItem from="1607327731461" duration="2000" />
+      <workItem from="1607356819506" duration="3264000" />
     </task>
     <task id="LOCAL-00001" summary="Добавил аутентификацию и применил миграции от нее">
       <created>1605619091224</created>
@@ -324,10 +329,10 @@
       <screen x="0" y="0" width="1810" height="978" />
     </state>
     <state x="675" y="186" key="Github.UntrackedFilesDialog/0.0.1810.978@0.0.1810.978" timestamp="1605618292840" />
-    <state x="740" y="413" key="NewPhpFileDialog" timestamp="1605630147257">
+    <state x="740" y="413" key="NewPhpFileDialog" timestamp="1607361178102">
       <screen x="0" y="0" width="1810" height="978" />
     </state>
-    <state x="740" y="413" key="NewPhpFileDialog/0.0.1810.978@0.0.1810.978" timestamp="1605630147257" />
+    <state x="740" y="413" key="NewPhpFileDialog/0.0.1810.978@0.0.1810.978" timestamp="1607361178102" />
     <state x="407" y="134" key="SettingsEditor" timestamp="1606758702368">
       <screen x="0" y="0" width="1810" height="978" />
     </state>

@@ -10,9 +10,8 @@
             <select wire:model="orderBy"
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state">
-                <option value="id">ID</option>
                 <option value="document_name">Название</option>
-                <option value="document_email">Номер</option>
+                <option value="document_number">Номер</option>
                 <option value="created_at">Дата подписания</option>
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -53,7 +52,7 @@
     @include('modal.createDocument')
     @include('modal.createDivision')
     @include('modal.createWorker')
-    <table class="table-auto w-full mb-6">
+    <table class="table-auto table-hover w-full mb-6">
         <thead>
         <tr>
             <th class="px-4 py-2">Номер</th>
@@ -65,16 +64,18 @@
         <tbody>
 
         @foreach($documents as $document)
-            <tr>
+
+            <tr data-toggle="modal" data-target="#documentModal" wire:click="editDocument({{$document->id}})">
                 <td class="border px-4 py-2">{{ $document->document_number }}</td>
                 <td class="border px-4 py-2">{{ $document->document_name }}</td>
                 <td class="border px-4 py-2">{{ $document->document_date_signing}}</td>
             </tr>
+
         @endforeach
         </tbody>
 
     </table>
-{{--    {!! $documents->links() !!}--}}
+    {{--    {!! $documents->links() !!}--}}
     <div>
 
 
