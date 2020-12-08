@@ -179,7 +179,7 @@ return [
         /*
         * Провайдеры не входящие в базовый пакет
          */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
     ],
 
     /*
