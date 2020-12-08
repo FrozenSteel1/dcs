@@ -25,8 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Завершил страницу начинаю делать таблицы воркеров и дивизионов">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Пробую в хероку">
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +201,14 @@
       <updated>1605617196805</updated>
       <workItem from="1605617197869" duration="1673000" />
     </task>
+    <task id="LOCAL-00001" summary="Пробую в хероку">
+      <created>1607413486298</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607413486298</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +238,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Пробую в хероку" />
+    <option name="LAST_COMMIT_MESSAGE" value="Пробую в хероку" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="784" y="387" key="Github.ShareDialog" timestamp="1605618276679">
       <screen x="0" y="0" width="1810" height="978" />
@@ -238,9 +251,9 @@
       <screen x="0" y="0" width="1810" height="978" />
     </state>
     <state x="675" y="186" key="Github.UntrackedFilesDialog/0.0.1810.978@0.0.1810.978" timestamp="1605618292840" />
-    <state x="498" y="222" key="Vcs.Push.Dialog.v2" timestamp="1607413283426">
+    <state x="498" y="222" key="Vcs.Push.Dialog.v2" timestamp="1607413989067">
       <screen x="0" y="0" width="1810" height="978" />
     </state>
-    <state x="498" y="222" key="Vcs.Push.Dialog.v2/0.0.1810.978@0.0.1810.978" timestamp="1607413283426" />
+    <state x="498" y="222" key="Vcs.Push.Dialog.v2/0.0.1810.978@0.0.1810.978" timestamp="1607413989067" />
   </component>
 </project>
