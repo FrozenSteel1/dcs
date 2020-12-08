@@ -26,7 +26,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="&#10;Меняю джейсон">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607416841362</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="&#10;Меняю джейсон">
+      <created>1607417716220</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607417716220</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,10 +312,10 @@
       <screen x="0" y="0" width="1810" height="978" />
     </state>
     <state x="675" y="186" key="Github.UntrackedFilesDialog/0.0.1810.978@0.0.1810.978" timestamp="1605618292840" />
-    <state x="498" y="222" key="Vcs.Push.Dialog.v2" timestamp="1607416844846">
+    <state x="498" y="222" key="Vcs.Push.Dialog.v2" timestamp="1607417720004">
       <screen x="0" y="0" width="1810" height="978" />
     </state>
-    <state x="498" y="222" key="Vcs.Push.Dialog.v2/0.0.1810.978@0.0.1810.978" timestamp="1607416844846" />
+    <state x="498" y="222" key="Vcs.Push.Dialog.v2/0.0.1810.978@0.0.1810.978" timestamp="1607417720004" />
     <state x="615" y="221" width="579" height="534" key="find.popup" timestamp="1607414658312">
       <screen x="0" y="0" width="1810" height="978" />
     </state>
