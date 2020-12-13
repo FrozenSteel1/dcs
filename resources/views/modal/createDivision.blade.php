@@ -45,7 +45,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Закрыть</button>
-                <button type="button" wire:click.prevent="deleteDivision({{$division_id}})" class="btn btn-primary close-modal">Удалить</button>
+{{--                <button type="button" wire:click.prevent="deleteDivision({{$division_id}})" class="btn btn-primary close-modal">Удалить</button>--}}
                 <button type="button"  wire:click.prevent="storeDivision()" class="btn btn-primary close-modal">Добавить</button>
             </div>
         </div>
