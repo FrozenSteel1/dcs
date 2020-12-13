@@ -78,7 +78,7 @@
                 <td class="border px-4 py-2">{{ $document->document_responsible_id}}</td>
                 <td class="border px-4 py-2">{{ $document->document_date_expired}}</td>
                 <td class="border px-4 py-2">
-                    <button type="button" wire:click="download({{$document_id}})" class="btn btn-primary">Скачать
+                    <button type="button" wire:click.stop="download({{$document_id}})" class="btn btn-primary">Скачать
                     </button></td>
             </tr>
 

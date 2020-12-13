@@ -4,10 +4,15 @@ namespace App\Http\Livewire;
 
 use App\Models\Document;
 use App\Models\Worker;
+use App\Models\Division;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Http\Request;
+
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
-use App\Models\Division;
+
+
 
 class MainTable extends Component
 {
@@ -104,6 +109,7 @@ class MainTable extends Component
 
         ]);
 
+
         Worker::create($validatedDate);
 
         session()->flash('message', 'Работник успешно добавлен');
@@ -117,17 +123,15 @@ class MainTable extends Component
     public function storeDivision()
     {
 
-        $validatedDate = $this->validate([
-            'division_name' => '',
-            'division_parent_name' => '',
-        ]);
-        dd($this);
-
+        $rules=[
+            'division_name' => 'different:division_parent_name|filled|max:255|min:3|required|string',
+            'division_parent_name' => 'different:division_name|nullable|max:255|min:3|string',
+        ];
+        $validatedDate = $this->validate($rules);
         Division::create($validatedDate);
+        session()->flash('message', 'Подразделение добавлено.');
 
-        session()->flash('message', 'Divisions Created Successfully.');
-
-        $this->resetInputFields();
+      //  $this->resetInputFields();
 
         $this->emit('divisionStore'); // Close model to using to jquery
 
@@ -212,6 +216,9 @@ class MainTable extends Component
             $this->resetInputFields();
 
         }
+    }
+    public function download($id){
+        dd($id);
     }
 
     public function deleteDivision($id)
