@@ -25,21 +25,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="&#10;Меняю джейсон">
-      <change afterPath="$PROJECT_DIR$/app/Observers/DivisionObserver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Observers/DocumentObserver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Observers/WorkerObserver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/debugbar/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dcs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dcs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Не получается отобразить сраные ошибки">
+      <change afterPath="$PROJECT_DIR$/public/$2y$10$PFYlySZhZPdq25ntXYNW.evM7zaxno0oyrNrciIW4yYPDkk4LWl6i.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/$2y$10$xZEXnLSNQJbS4RM5On32ouvXvaYE.IdP0rHc6NojBNoUBNDXL0T6W.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/example.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/docs/$2y$10$PCuphU6J68InXvZSUdCnmuoKhk8DFQTpS88QCgAI.HIdyNIJZTQfa.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_12_2020_10_56_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_12_2020_10_56__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Division.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Division.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +223,10 @@
       <updated>1605617196805</updated>
       <workItem from="1605617197869" duration="1673000" />
       <workItem from="1607863620807" duration="63000" />
-      <workItem from="1607863715767" duration="19274000" />
+      <workItem from="1607863715767" duration="19327000" />
+      <workItem from="1608191708041" duration="4180000" />
+      <workItem from="1608462240433" duration="216000" />
+      <workItem from="1608462505244" duration="9728000" />
     </task>
     <task id="LOCAL-00001" summary="Пробую в хероку">
       <created>1607413486298</created>
@@ -299,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607863759938</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Не получается отобразить сраные ошибки">
+      <created>1607891225653</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607891225653</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +340,8 @@
     <MESSAGE value="Пробую в хероку" />
     <MESSAGE value="&#10;Меняю джейсон" />
     <MESSAGE value="Все работает начинаю работу с файлми и переработками" />
-    <option name="LAST_COMMIT_MESSAGE" value="Все работает начинаю работу с файлми и переработками" />
+    <MESSAGE value="Не получается отобразить сраные ошибки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Не получается отобразить сраные ошибки" />
   </component>
   <component name="WindowStateProjectService">
     <state x="636" y="244" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607871967323">
