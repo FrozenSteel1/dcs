@@ -13,11 +13,22 @@
                 </button>
             </div>
             <div class="modal-body">
+                @if (session()->has('errorsArray'))
+                @foreach(session('errorsArray') as $fmessage)
+
+                    <div class="alert alert-warning" style="margin-top:30px;">x
+                        {{ $fmessage}}
+                    </div>
+
+                @endforeach
+                @endif
                 <form>
                     <div class="form-group">
                         <label for="document_name">Название</label>
                         <input type="text" class="form-control" id="document_name" placeholder="Название" wire:model="document_name">
-                        @error('document_name') <span class="text-danger error">{{ $message }}</span>@enderror
+                        @error('document_name')
+                        <span class="text-danger error"> {{$message}}</span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="document_number">Номер</label>
@@ -60,6 +71,7 @@
                                 <option value="{{$worker['worker_surname'].' '.$worker['worker_name'].' '.$worker['worker_patronymic'].' '.$worker['worker_position']}}"></option>
                             @endforeach
                         </datalist>
+
                         @error('document_signer_id') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
@@ -87,7 +99,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Закрыть</button>
-{{--                <button type="button" wire:click.prevent="deleteDocument({{$document_id}})" class="btn btn-primary close-modal">Удалить</button>--}}
+               <button type="button" wire:click.prevent="deleteDocument({{$document_id}})" class="btn btn-primary close-modal">Удалить</button>
                 <button type="button" wire:click.prevent="storeDocument()" class="btn btn-primary close-modal">Добавить</button>
             </div>
         </div>

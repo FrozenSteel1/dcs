@@ -16,7 +16,7 @@ class DivisionObserver
     public function creating(Division $division)
     {
 
-dd('creating');
+
     }
 
     /**
@@ -27,7 +27,7 @@ dd('creating');
      */
     public function created(Division $division)
     {
-        dd('DivisionObserver/created');
+
     }
 
     /**
@@ -38,7 +38,7 @@ dd('creating');
      */
     public function updating(Division $division)
     {
-        dd('DivisionObserver/updating');
+
     }
 
     /**

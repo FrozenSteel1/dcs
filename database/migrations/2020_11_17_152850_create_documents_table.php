@@ -18,12 +18,12 @@ class CreateDocumentsTable extends Migration
             $table->string('document_number',50)->nullable();
             $table->string('document_name',255)->unique();
             $table->string('document_type',255)->default('Без типа');
-            $table->json('document_area')->nullable();
+            $table->integer('document_area')->default(0)->nullable();
             $table->integer('document_version')->default(0);
-            $table->json('document_responsible_id');
+            $table->integer('document_responsible_id');
             $table->integer('document_worker_id')->default(0);
-            $table->json('document_signer_id');
-            $table->json('document_tags')->nullable();
+            $table->string('document_signer_id',255);
+            $table->string('document_type',255)->nullable();
             $table->date('document_date_signing');
             $table->date('document_date_expired')->nullable();
             $table->json('document_data');

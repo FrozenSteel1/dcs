@@ -13,6 +13,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 use ZipArchive;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -35,10 +36,12 @@ class MainTable extends Component
     public $orderBy = 'document_number';
     public $orderAsc = true;
     public $updateMode = false;
-
+    public $err=0;
+public $flashMessage=[];
 
     private function resetInputFields()
     {
+
         $this->division_name = '';
         $this->division_parent_name = '';
         $this->worker_name = '';
@@ -64,22 +67,30 @@ class MainTable extends Component
 
 
     }
+    private static function getWorkerId  (){
+        if (Auth::check()) {
 
+            $user = Auth::user()->id;
+            return $user;
+        }
+        return false;
+    }
     public function storeDocument()
     {
-
+       $this->flashMessage=[];
         $validatedDate = $this->validate([
-            'document_name' => 'required',
-            'document_number' => 'required',
-            'document_area' => '',
-            'document_data' => '',
-            'document_type' => '',
-            'document_date_expired' => '',
-            'document_date_signing' => '',
-            'document_tags' => '',
-            'document_responsible_id' => '',
-            'document_signer_id' => '',
+            'document_name' => 'required|max:255|min:3|string',
+            'document_number' => 'required|string|max:255',
+            'document_area' => 'string|max:255',
+            'document_data' => 'required',
+            'document_type' => 'string|max:255',
+            'document_date_expired' => 'date|after:document_date_signing',
+            'document_date_signing' => 'required|date',
+            'document_tags' => 'string|max:255',
+            'document_responsible_id' => 'required|string|max:255|min:3',
+            'document_signer_id' => 'required|string|max:255|min:3',
         ]);
+//работа с полем файлов
         $zip = new ZipArchive;
         $nameZip = str_replace(['.', '/'], 'w', storage_path() . '\app\docs\\' . Hash::make(implode(getdate()))) . '.zip';
         if ($zip->open($nameZip, ZipArchive::CREATE) === TRUE) {
@@ -92,18 +103,94 @@ class MainTable extends Component
 
             $zip->close();
         }
-
-
         $validatedDate['document_data'] = $nameZip;
+// Конец работы с полем файлов
+
+// Работа с полем выбора бизнес единицы
+        $businessItem=Division::where('division_name', $validatedDate['document_area'])->first();
+        if ($businessItem<>null){
+            $validatedDate['document_area'] = $businessItem->id;
+        }
+
+// Конец работы с полем выбора бизнес единицы
+
+// Работа с полем выбора ответственного
+        $responsibleArr = explode(' ', $validatedDate['document_responsible_id']);
+        if (count($responsibleArr) == 2) {
+            $findResponsible = Worker::where('worker_name', $responsibleArr[1])
+                ->orwhere('worker_name', $responsibleArr[0])
+                ->where('worker_surname', $responsibleArr[0])
+                ->orwhere('worker_surname', $responsibleArr[1])
+                ->get()->first();
+        }
+        if (count($responsibleArr) > 2) {
+            $findResponsible = Worker::where('worker_name', $responsibleArr[1])
+                ->orwhere('worker_name', $responsibleArr[0])
+                ->where('worker_surname', $responsibleArr[0])
+                ->orwhere('worker_surname', $responsibleArr[1])
+                ->where('worker_patronymic', $responsibleArr[2])
+                ->orwhere('worker_patronymic', '')
+                ->get()->first();
+        }
+        if (isset($findResponsible)) {
 
 
-        Document::create($validatedDate);
+            $validatedDate['document_responsible_id'] = $findResponsible->id;
+        }
+        else{
+$this->flashMessage[]='Такого ответственного не существует занесите его в базу';
+        }
 
-        session()->flash('message', 'Документ добавлен все хорошо');
+// Конец работы с полем выбора ответственного
 
-        $this->resetInputFields();
+// Работа с полем выбора подписчика
+        $signerArr = explode(' ', $validatedDate['document_signer_id']);
+        if (count($signerArr) == 2) {
+            $findSigner = Worker::where('worker_name', $signerArr[1])
+                ->orwhere('worker_name', $signerArr[0])
+                ->where('worker_surname', $signerArr[0])
+                ->orwhere('worker_surname', $signerArr[1])
+                ->get()->first();
+        }
+        if (count($signerArr) > 2) {
+            $findSigner = Worker::where('worker_name', $signerArr[1])
+                ->orwhere('worker_name', $signerArr[0])
+                ->where('worker_surname', $signerArr[0])
+                ->orwhere('worker_surname', $signerArr[1])
+                ->where('worker_patronymic', $signerArr[2])
+                ->orwhere('worker_patronymic', '')
+                ->get()->first();
+        }
+        if (isset($findSigner)) {
 
-        $this->emit('documentStore'); // Close model to using to jquery
+            $validatedDate['document_signer_id'] = $findSigner->id;
+        }
+        else{
+            $this->flashMessage[]='Такого подписчика не существует занесите его в базу или укажите ФИО полностью';
+        }
+
+// Конец работы с полем выбора подписчика
+
+//Работа с полем работника
+        $validatedDate['document_worker_id']=self::getWorkerId();
+//Конец работы с полем работника
+
+
+if ($this->flashMessage==[]){
+    Document::create($validatedDate);
+    session()->flash('message', 'Документ добавлен все хорошо');
+    $this->resetInputFields();
+
+    $this->emit('documentStore'); // Close model to using to jquery
+}
+else{
+
+    session()->flash('errorsArray', $this->flashMessage);
+
+}
+
+
+
 
     }
 
@@ -240,7 +327,7 @@ class MainTable extends Component
     public function download($id)
     {
 
-        $pathToFile =Document::find($id)['document_data'];
+        $pathToFile = Document::find($id)['document_data'];
 
         return response()->download($pathToFile);
     }
@@ -267,7 +354,9 @@ class MainTable extends Component
         if ($id) {
             Document::where('id', $id)->delete();
             session()->flash('message', 'Документа больше нет.');
+            $this->emit('documentStore');
         }
+
     }
 
     public function searching()

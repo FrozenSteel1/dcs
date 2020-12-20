@@ -25,17 +25,29 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Не получается отобразить сраные ошибки">
+    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Доделал таки файлы через архив">
       <change afterPath="$PROJECT_DIR$/public/$2y$10$PFYlySZhZPdq25ntXYNW.evM7zaxno0oyrNrciIW4yYPDkk4LWl6i.zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/$2y$10$xZEXnLSNQJbS4RM5On32ouvXvaYE.IdP0rHc6NojBNoUBNDXL0T6W.zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/example.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/bootstrap-4.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/semantic-ui.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-bootstrap-4.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-tailwind.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/tailwind.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storage/1.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storage/docs/$2y$10$PCuphU6J68InXvZSUdCnmuoKhk8DFQTpS88QCgAI.HIdyNIJZTQfa.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_12_2020_10_56_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_12_2020_10_56__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Observers/DivisionObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/DivisionObserver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_17_152850_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_17_152850_create_documents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,11 +211,12 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/ru" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OpenServer\domains\dcs\resources\lang\ru" />
       <recent name="D:\OpenServer\domains\dcs\app" />
     </key>
   </component>
@@ -226,7 +239,7 @@
       <workItem from="1607863715767" duration="19327000" />
       <workItem from="1608191708041" duration="4180000" />
       <workItem from="1608462240433" duration="216000" />
-      <workItem from="1608462505244" duration="9728000" />
+      <workItem from="1608462505244" duration="21167000" />
     </task>
     <task id="LOCAL-00001" summary="Пробую в хероку">
       <created>1607413486298</created>
@@ -305,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607891225653</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Доделал таки файлы через архив">
+      <created>1608473461741</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1608473461741</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +361,8 @@
     <MESSAGE value="&#10;Меняю джейсон" />
     <MESSAGE value="Все работает начинаю работу с файлми и переработками" />
     <MESSAGE value="Не получается отобразить сраные ошибки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Не получается отобразить сраные ошибки" />
+    <MESSAGE value="Доделал таки файлы через архив" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доделал таки файлы через архив" />
   </component>
   <component name="WindowStateProjectService">
     <state x="636" y="244" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607871967323">
