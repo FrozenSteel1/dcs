@@ -26,6 +26,7 @@
                     <div class="form-group">
                         <label for="document_name">Название</label>
                         <input type="text" class="form-control" id="document_name" placeholder="Название" wire:model="document_name">
+{{--                        <div>ddddd{{$request->json()->all()['serverMemo']['errors'][]}}</div>--}}
                         @error('document_name')
                         <span class="text-danger error"> {{$message}}</span>
                         @enderror
@@ -48,6 +49,7 @@
                                 <option value="{{$division['division_name']}}"></option>
                             @endforeach
                         </datalist>
+
                         @error('document_area') <span class="text-danger error">{{ $message }}</span>@enderror
 
                     </div>
@@ -100,6 +102,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Закрыть</button>
                <button type="button" wire:click.prevent="deleteDocument({{$document_id}})" class="btn btn-primary close-modal">Удалить</button>
+
                 <button type="button" wire:click.prevent="storeDocument()" class="btn btn-primary close-modal">Добавить</button>
             </div>
         </div>

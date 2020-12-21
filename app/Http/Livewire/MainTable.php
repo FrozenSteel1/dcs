@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Document;
 use App\Models\Worker;
+use App\Models\User;
 use App\Models\Division;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class MainTable extends Component
     public $division_name, $division_parent_name, $division_id;
     public $document_name, $document_number, $document_area, $document_id,
         $document_responsible_id, $document_signer_id, $document_tags, $document_date_signing,
-        $document_date_expired, $document_data, $document_type;
+        $document_date_expired, $document_data, $document_type, $document_worker_id;
     public $worker_name, $worker_surname, $worker_id, $worker_email, $worker_email_spare, $worker_tel
     , $worker_tel_spare, $worker_position, $worker_patronymic;
     public $documents, $divisions, $workers;
@@ -36,8 +37,8 @@ class MainTable extends Component
     public $orderBy = 'document_number';
     public $orderAsc = true;
     public $updateMode = false;
-    public $err=0;
-public $flashMessage=[];
+    public $err = 0;
+    public $flashMessage = [];
 
     private function resetInputFields()
     {
@@ -67,7 +68,9 @@ public $flashMessage=[];
 
 
     }
-    private static function getWorkerId  (){
+
+    private static function getWorkerId()
+    {
         if (Auth::check()) {
 
             $user = Auth::user()->id;
@@ -75,9 +78,12 @@ public $flashMessage=[];
         }
         return false;
     }
+
     public function storeDocument()
     {
-       $this->flashMessage=[];
+
+        $this->flashMessage = [];
+//Валидация
         $validatedDate = $this->validate([
             'document_name' => 'required|max:255|min:3|string',
             'document_number' => 'required|string|max:255',
@@ -90,8 +96,9 @@ public $flashMessage=[];
             'document_responsible_id' => 'required|string|max:255|min:3',
             'document_signer_id' => 'required|string|max:255|min:3',
         ]);
+
 //работа с полем файлов
-        $zip = new ZipArchive;
+       $zip = new ZipArchive;
         $nameZip = str_replace(['.', '/'], 'w', storage_path() . '\app\docs\\' . Hash::make(implode(getdate()))) . '.zip';
         if ($zip->open($nameZip, ZipArchive::CREATE) === TRUE) {
 
@@ -105,10 +112,9 @@ public $flashMessage=[];
         }
         $validatedDate['document_data'] = $nameZip;
 // Конец работы с полем файлов
-
 // Работа с полем выбора бизнес единицы
-        $businessItem=Division::where('division_name', $validatedDate['document_area'])->first();
-        if ($businessItem<>null){
+        $businessItem = Division::where('division_name', $validatedDate['document_area'])->first();
+        if ($businessItem <> null) {
             $validatedDate['document_area'] = $businessItem->id;
         }
 
@@ -136,9 +142,8 @@ public $flashMessage=[];
 
 
             $validatedDate['document_responsible_id'] = $findResponsible->id;
-        }
-        else{
-$this->flashMessage[]='Такого ответственного не существует занесите его в базу';
+        } else {
+            $this->flashMessage[] = 'Такого ответственного не существует занесите его в базу';
         }
 
 // Конец работы с полем выбора ответственного
@@ -164,32 +169,28 @@ $this->flashMessage[]='Такого ответственного не сущес
         if (isset($findSigner)) {
 
             $validatedDate['document_signer_id'] = $findSigner->id;
-        }
-        else{
-            $this->flashMessage[]='Такого подписчика не существует занесите его в базу или укажите ФИО полностью';
+        } else {
+            $this->flashMessage[] = 'Такого подписчика не существует занесите его в базу или укажите ФИО полностью';
         }
 
 // Конец работы с полем выбора подписчика
 
 //Работа с полем работника
-        $validatedDate['document_worker_id']=self::getWorkerId();
+       $validatedDate['document_worker_id'] = self::getWorkerId();
 //Конец работы с полем работника
 
+//Сохранение и выведение финального сообщения
+       if ($this->flashMessage == []) {
+            Document::create($validatedDate);
+            session()->flash('message', 'Документ добавлен все хорошо');
+            $this->resetInputFields();
 
-if ($this->flashMessage==[]){
-    Document::create($validatedDate);
-    session()->flash('message', 'Документ добавлен все хорошо');
-    $this->resetInputFields();
+            $this->emit('documentStore'); // Close model to using to jquery
+        } else {
 
-    $this->emit('documentStore'); // Close model to using to jquery
-}
-else{
+            session()->flash('errorsArray', $this->flashMessage);
 
-    session()->flash('errorsArray', $this->flashMessage);
-
-}
-
-
+        }
 
 
     }
@@ -197,20 +198,31 @@ else{
     public function storeWorker()
     {
 
+
         $validatedDate = $this->validate([
 
-            'worker_name' => 'required',
-            'worker_surname' => 'required',
-            'worker_id' => '',
+            'worker_name' => 'required|string|min:3|max:50',
+            'worker_surname' => 'required|string|min:3|max:50',
+            'worker_patronymic' => 'string|min:3|max:50',
             'worker_email' => 'email',
             'worker_email_spare' => 'email',
-            'worker_tel' => '',
-            'worker_tel_spare' => '',
-            'worker_position' => '',
-            'division_id' => '',
-            'worker_patronymic' => '',
+            'worker_tel' => 'required|string|max:50',
+            'worker_tel_spare' => 'string|max:50',
+            'worker_position' => 'string|min:3|max:50',
+            'division_id' => 'string|min:3|max:50',
+
 
         ]);
+
+        if ($validatedDate['division_id'] <> '') {
+            $findDivision = Division::where('division_name', $validatedDate['division_id'])->first();
+            if (isset($findDivision)) {
+
+                $validatedDate['division_id'] = $findDivision->id;
+            }
+        } else {
+            $validatedDate['division_id'] = 0;
+        }
 
 
         Worker::create($validatedDate);
@@ -242,7 +254,7 @@ else{
 
     public function edit($id)
     {
-        dd('edit');
+
         $this->updateMode = true;
 
         $division = Division::where('id', $id)->first();
@@ -255,7 +267,7 @@ else{
 
     public function editWorker($id)
     {
-        dd('edieditWorkert');
+
         $this->updateMode = true;
 
         $division = Division::where('id', $id)->first();
@@ -277,13 +289,14 @@ else{
         $this->document_name = $document->document_name;
         $this->document_number = $document->document_number;
         $this->document_type = $document->document_type;
-        $this->document_area = $document->document_area;
-        $this->document_responsible_id = $document->document_responsible_id;
-        $this->document_worker_id = $document->document_worker_id;
-        $this->document_signer_id = $document->document_signer_id;
+        $this->document_area = Division::where('id', $document->document_area)->first()->division_name;
+        $this->document_responsible_id = Worker::where('id', $document->document_responsible_id)->first()->worker_name;
+        $this->document_worker_id = User::where('id', $document->document_worker_id)->first()->name;
+        $this->document_signer_id = Worker::where('id', $document->document_signer_id)->first()->worker_name;;
         $this->document_date_signing = $document->document_date_signing;
         $this->document_date_expired = $document->document_date_expired;
         $this->document_data = $document->document_data;
+
 
     }
 
@@ -359,6 +372,7 @@ else{
 
     }
 
+
     public function searching()
     {
         $this->divisions = Division::where('division_name', 'like', '%' . $this->search . '%')
@@ -373,11 +387,12 @@ else{
             ->toArray();
     }
 
+
     public function render(): string
     {
         $this->searching();
         $this->searchWorkers();
-
+//перекинуть тут
 
         return view('livewire.main-table', [
             'documents' => Document::search($this->search)

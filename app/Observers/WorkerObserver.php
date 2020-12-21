@@ -14,7 +14,7 @@ class WorkerObserver
      */
     public function creating(Worker $worker)
     {
-        dd($worker);
+
     }
     /**
      * Handle the Worker "created" event.

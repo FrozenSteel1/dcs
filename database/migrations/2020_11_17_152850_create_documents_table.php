@@ -17,7 +17,6 @@ class CreateDocumentsTable extends Migration
             $table->id();
             $table->string('document_number',50)->nullable();
             $table->string('document_name',255)->unique();
-            $table->string('document_type',255)->default('Без типа');
             $table->integer('document_area')->default(0)->nullable();
             $table->integer('document_version')->default(0);
             $table->integer('document_responsible_id');
