@@ -18,19 +18,37 @@ class DivisionsTable extends Component
     public function storeDivision()
     {
 
-        $validatedDate = $this->validate([
-            'division_name' => '',
-            'division_parent_name' => '',
-        ]);
-
-
+        $rules = [
+            'division_name' => 'different:division_parent_name|filled|max:255|min:3|required|string',
+            'division_parent_name' => 'different:division_name|nullable|max:255|min:3|string',
+        ];
+        $validatedDate = $this->validate($rules);
         Division::create($validatedDate);
+        session()->flash('message', 'Подразделение добавлено.');
 
-        session()->flash('message', 'Все прошло успешно');
 
-        $this->resetInputFields();
+        $this->emit('divisionStore');
 
-        $this->emit('divisionStore'); // Close model to using to jquery
+    }
+    public function updateDivision($id)
+    {
+
+        $record=Division::where('id',$id)->first();
+
+        $rules = [
+            'division_name' => 'different:division_parent_name|filled|max:255|min:3|required|string',
+            'division_parent_name' => 'different:division_name|nullable|max:255|min:3|string',
+        ];
+        $validatedDate = $this->validate($rules);
+        if ($validatedDate['division_name']<>$record->division_name or $validatedDate['division_parent_name']<>$record->division_parent_name){
+            $record->update($validatedDate);
+            session()->flash('message', 'Подразделение изменено.');
+
+        }
+        $this->emit('divisionStore');
+
+
+
 
     }
     private function resetInputFields()
@@ -80,6 +98,7 @@ class DivisionsTable extends Component
 $this->searchDivisions();
 
         return view('livewire.divisions-table', [
+            'update_mode' => $this->updateMode,
             'divisions' => $this->divisions,
             'division_id'=>$this->division_id,
             'divisionsSearch' => Division::searchDivision($this->search)->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')

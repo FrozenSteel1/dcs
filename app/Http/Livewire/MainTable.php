@@ -16,6 +16,7 @@ use Livewire\WithPagination;
 use ZipArchive;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 
 class MainTable extends Component
@@ -98,7 +99,7 @@ class MainTable extends Component
         ]);
 
 //работа с полем файлов
-       $zip = new ZipArchive;
+        $zip = new ZipArchive;
         $nameZip = str_replace(['.', '/'], 'w', storage_path() . '\app\docs\\' . Hash::make(implode(getdate()))) . '.zip';
         if ($zip->open($nameZip, ZipArchive::CREATE) === TRUE) {
 
@@ -112,6 +113,7 @@ class MainTable extends Component
         }
         $validatedDate['document_data'] = $nameZip;
 // Конец работы с полем файлов
+        /* Временно упрощаем
 // Работа с полем выбора бизнес единицы
         $businessItem = Division::where('division_name', $validatedDate['document_area'])->first();
         if ($businessItem <> null) {
@@ -175,17 +177,145 @@ class MainTable extends Component
 
 // Конец работы с полем выбора подписчика
 
+
+*/
 //Работа с полем работника
-       $validatedDate['document_worker_id'] = self::getWorkerId();
+        $validatedDate['document_worker_id'] = self::getWorkerId();
 //Конец работы с полем работника
 
 //Сохранение и выведение финального сообщения
-       if ($this->flashMessage == []) {
+        if ($this->flashMessage == []) {
             Document::create($validatedDate);
             session()->flash('message', 'Документ добавлен все хорошо');
             $this->resetInputFields();
 
-            $this->emit('documentStore'); // Close model to using to jquery
+            $this->emit('documentStore');
+        } else {
+
+            session()->flash('errorsArray', $this->flashMessage);
+
+        }
+
+
+    }
+
+    public function updateDocument($id)
+    {
+
+        $record = Document::where('id', $id)->first();
+        $this->flashMessage = [];
+//Валидация
+        $validatedDate = $this->validate([
+            'document_name' => 'required|max:255|min:3|string',
+            'document_number' => 'required|string|max:255',
+            'document_area' => 'string|max:255',
+            'document_data' => 'required',
+            'document_type' => 'string|max:255',
+            'document_date_expired' => 'date|after:document_date_signing',
+            'document_date_signing' => 'required|date',
+            'document_tags' => 'string|max:255',
+            'document_responsible_id' => 'required|string|max:255|min:3',
+            'document_signer_id' => 'required|string|max:255|min:3',
+        ]);
+        //работа с полем файлов
+        if ($validatedDate['document_data'] <> $record->document_data) {
+
+            $zip = new ZipArchive;
+            $nameZip = str_replace(['.', '/'], 'w', storage_path() . '\app\docs\\' . Hash::make(implode(getdate()))) . '.zip';
+            if ($zip->open($nameZip, ZipArchive::CREATE) === TRUE) {
+
+                foreach ($validatedDate['document_data'] as $file) {
+
+                    $zip->addFile(storage_path() . '\app\livewire-tmp\\' . $file->getFileName(), $file->getClientOriginalName());
+
+                }
+
+                $zip->close();
+            }
+            $validatedDate['document_data'] = $nameZip;
+        }
+// Конец работы с полем файлов
+
+        /* Временно упрощаем
+// Работа с полем выбора бизнес единицы
+        $businessItem = Division::where('division_name', $validatedDate['document_area'])->first();
+        if ($businessItem <> null) {
+            $validatedDate['document_area'] = $businessItem->id;
+        }
+
+// Конец работы с полем выбора бизнес единицы
+
+// Работа с полем выбора ответственного
+        $responsibleArr = explode(' ', $validatedDate['document_responsible_id']);
+        if (count($responsibleArr) == 2) {
+            $findResponsible = Worker::where('worker_name', $responsibleArr[1])
+                ->orwhere('worker_name', $responsibleArr[0])
+                ->where('worker_surname', $responsibleArr[0])
+                ->orwhere('worker_surname', $responsibleArr[1])
+                ->get()->first();
+        }
+        if (count($responsibleArr) > 2) {
+            $findResponsible = Worker::where('worker_name', $responsibleArr[1])
+                ->orwhere('worker_name', $responsibleArr[0])
+                ->where('worker_surname', $responsibleArr[0])
+                ->orwhere('worker_surname', $responsibleArr[1])
+                ->where('worker_patronymic', $responsibleArr[2])
+                ->orwhere('worker_patronymic', '')
+                ->get()->first();
+        }
+        if (isset($findResponsible)) {
+
+
+            $validatedDate['document_responsible_id'] = $findResponsible->id;
+        } else {
+            $this->flashMessage[] = 'Такого ответственного не существует занесите его в базу';
+        }
+
+// Конец работы с полем выбора ответственного
+
+// Работа с полем выбора подписчика
+        $signerArr = explode(' ', $validatedDate['document_signer_id']);
+        if (count($signerArr) == 2) {
+            $findSigner = Worker::where('worker_name', $signerArr[1])
+                ->orwhere('worker_name', $signerArr[0])
+                ->where('worker_surname', $signerArr[0])
+                ->orwhere('worker_surname', $signerArr[1])
+                ->get()->first();
+        }
+        if (count($signerArr) > 2) {
+            $findSigner = Worker::where('worker_name', $signerArr[1])
+                ->orwhere('worker_name', $signerArr[0])
+                ->where('worker_surname', $signerArr[0])
+                ->orwhere('worker_surname', $signerArr[1])
+                ->where('worker_patronymic', $signerArr[2])
+                ->orwhere('worker_patronymic', '')
+                ->get()->first();
+        }
+        if (isset($findSigner)) {
+
+            $validatedDate['document_signer_id'] = $findSigner->id;
+        } else {
+            $this->flashMessage[] = 'Такого подписчика не существует занесите его в базу или укажите ФИО полностью';
+        }
+
+// Конец работы с полем выбора подписчика
+
+
+*/
+//Работа с полем работника
+        $validatedDate['document_worker_id'] = self::getWorkerId();
+//Конец работы с полем работника
+
+//Сохранение и выведение финального сообщения
+        if ($this->flashMessage == []) {
+
+            $record->update($validatedDate);
+
+
+            session()->flash('message', 'Документ изменен все хорошо');
+            $this->resetInputFields();
+
+            $this->emit('documentStore');
         } else {
 
             session()->flash('errorsArray', $this->flashMessage);
@@ -252,6 +382,26 @@ class MainTable extends Component
 
     }
 
+    public function updateDivision($id)
+    {
+
+        $record = Division::where('id', $id)->first();
+
+        $rules = [
+            'division_name' => 'different:division_parent_name|filled|max:255|min:3|required|string',
+            'division_parent_name' => 'different:division_name|nullable|max:255|min:3|string',
+        ];
+        $validatedDate = $this->validate($rules);
+        if ($validatedDate['division_name'] <> $record->division_name or $validatedDate['division_parent_name'] <> $record->division_parent_name) {
+            $record->update($validatedDate);
+            session()->flash('message', 'Подразделение изменено.');
+
+        }
+        $this->emit('divisionStore');
+
+
+    }
+
     public function edit($id)
     {
 
@@ -289,10 +439,11 @@ class MainTable extends Component
         $this->document_name = $document->document_name;
         $this->document_number = $document->document_number;
         $this->document_type = $document->document_type;
-        $this->document_area = Division::where('id', $document->document_area)->first()->division_name;
-        $this->document_responsible_id = Worker::where('id', $document->document_responsible_id)->first()->worker_name;
-        $this->document_worker_id = User::where('id', $document->document_worker_id)->first()->name;
-        $this->document_signer_id = Worker::where('id', $document->document_signer_id)->first()->worker_name;;
+        $this->document_area = $document->document_area;
+        $this->document_responsible_id = $document->document_responsible_id;
+        $this->document_worker_id = $document->document_worker_id;
+        $this->document_signer_id = $document->document_signer_id;
+        $this->document_tags = $document->document_tags;
         $this->document_date_signing = $document->document_date_signing;
         $this->document_date_expired = $document->document_date_expired;
         $this->document_data = $document->document_data;
@@ -387,6 +538,53 @@ class MainTable extends Component
             ->toArray();
     }
 
+    public function checkDocument()
+    {
+
+        $currentDate = Carbon::now('+03:00');
+        $currentDate1 = Carbon::now('+03:00')->addDay();
+        $currentDate15 = Carbon::now('+03:00')->addDays(15);
+        $currentDate30 = Carbon::now('+03:00')->addDays(30);
+        $allDocuments = Document::all();
+
+
+        foreach ($allDocuments as $document) {
+
+            if ($document->document_date_expired == $currentDate15->toDateString() or $document->document_date_expired == $currentDate1->toDateString() or $document->document_date_expired == $currentDate30->toDateString()) {
+
+                if (Carbon::parse($document->document_date_expired)->subDays(15)->toDateString() == $currentDate->toDateString()) {
+                    $days = 15;
+                }
+                if (Carbon::parse($document->document_date_expired)->subDays(30)->toDateString() == $currentDate->toDateString()) {
+                    $days = 30;
+                }
+                if (Carbon::parse($document->document_date_expired)->subDays(1)->toDateString() == $currentDate->toDateString()) {
+                    $days = 1;
+                } else {
+
+                }
+
+                $name = explode(' ', $document->document_responsible_id)[1];
+                $surname = explode(' ', $document->document_responsible_id)[0];
+                $patronymic = explode(' ', $document->document_responsible_id)[2];
+                $workerEmail = Worker::where('worker_name', $name)
+                    ->where('worker_surname', $surname)
+                    ->where('worker_patronymic', $patronymic)->first()->worker_email;
+                $message = 'Документ номер "' . $document->document_number . '" Под названием "' . $document->document_name . '" Прекратит свое действие через "' . $days . '" дней';
+
+                mail($workerEmail, 'Оповещение системы документооборота', $message);
+
+            }
+
+
+
+        }
+
+
+
+
+
+    }
 
     public function render(): string
     {
@@ -395,6 +593,7 @@ class MainTable extends Component
 //перекинуть тут
 
         return view('livewire.main-table', [
+            'update_mode' => $this->updateMode,
             'documents' => Document::search($this->search)
                 ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->perPage),

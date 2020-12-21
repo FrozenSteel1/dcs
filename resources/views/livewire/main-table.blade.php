@@ -1,4 +1,5 @@
 <div>
+    <button  type="button" wire:click="checkDocument()" class="btn btn-primary">Проверить документы    </button>
     <!-- Основная таблица -->
     <div class="w-full flex pb-10">
         <div class="w-3/6 mx-1">

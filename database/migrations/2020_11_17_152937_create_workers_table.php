@@ -22,7 +22,7 @@ class CreateWorkersTable extends Migration
             $table->string('worker_email_spare',50)->nullable();
             $table->string('worker_tel',15)->nullable();
             $table->string('worker_tel_spare',15)->nullable();
-            $table->integer('division_id')->nullable();
+            $table->string('division_id',255)->nullable();
             $table->string('worker_position',50)->nullable();
             $table->softDeletes();
             $table->timestamps();

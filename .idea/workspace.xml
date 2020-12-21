@@ -25,25 +25,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Еще чуток всего поделал прямо всего и сейчас перекачу миграции">
-      <change afterPath="$PROJECT_DIR$/public/$2y$10$PFYlySZhZPdq25ntXYNW.evM7zaxno0oyrNrciIW4yYPDkk4LWl6i.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/$2y$10$xZEXnLSNQJbS4RM5On32ouvXvaYE.IdP0rHc6NojBNoUBNDXL0T6W.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/example.bak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/docs/$2y$10$PCuphU6J68InXvZSUdCnmuoKhk8DFQTpS88QCgAI.HIdyNIJZTQfa.zip" afterDir="false" />
+    <list default="true" id="0a19b9ec-637a-429e-b38c-e8af6f257911" name="Default Changelist" comment="Меняю все миграции">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/DivisionsTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/DivisionsTable.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/MainTable.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/WorkersTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/WorkersTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/WorkerObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/WorkerObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_17_152850_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_17_152850_create_documents_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_17_152937_create_workers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_17_152937_create_workers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/divisions-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/divisions-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/main-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/workers-table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/workers-table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDivision.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createDocument.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modal/createWorker.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,6 +232,7 @@
       <workItem from="1608191708041" duration="4180000" />
       <workItem from="1608462240433" duration="216000" />
       <workItem from="1608462505244" duration="32841000" />
+      <workItem from="1608542297218" duration="13085000" />
     </task>
     <task id="LOCAL-00001" summary="Пробую в хероку">
       <created>1607413486298</created>
@@ -329,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608489359450</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Меняю все миграции">
+      <created>1608542404690</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1608542404690</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,6 +370,7 @@
     <MESSAGE value="Не получается отобразить сраные ошибки" />
     <MESSAGE value="Доделал таки файлы через архив" />
     <MESSAGE value="Еще чуток всего поделал прямо всего и сейчас перекачу миграции" />
-    <option name="LAST_COMMIT_MESSAGE" value="Еще чуток всего поделал прямо всего и сейчас перекачу миграции" />
+    <MESSAGE value="Меняю все миграции" />
+    <option name="LAST_COMMIT_MESSAGE" value="Меняю все миграции" />
   </component>
 </project>

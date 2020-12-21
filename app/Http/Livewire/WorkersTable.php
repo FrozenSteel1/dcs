@@ -35,20 +35,32 @@ class WorkersTable extends Component
     public function storeWorker()
     {
 
+
         $validatedDate = $this->validate([
 
-            'worker_name' => 'required',
-            'worker_surname' => 'required',
-            'worker_id' => '',
+            'worker_name' => 'required|string|min:3|max:50',
+            'worker_surname' => 'required|string|min:3|max:50',
+            'worker_patronymic' => 'string|min:3|max:50',
             'worker_email' => 'email',
             'worker_email_spare' => 'email',
-            'worker_tel' => '',
-            'worker_tel_spare' => '',
-            'worker_position' => '',
-            'division_id' => '',
-            'worker_patronymic' => '',
+            'worker_tel' => 'required|string|max:50',
+            'worker_tel_spare' => 'string|max:50',
+            'worker_position' => 'string|min:3|max:50',
+            'division_id' => 'string|min:3|max:50',
+
 
         ]);
+
+//        if ($validatedDate['division_id'] <> '') {
+//            $findDivision = Division::where('division_name', $validatedDate['division_id'])->first();
+//            if (isset($findDivision)) {
+//
+//                $validatedDate['division_id'] = $findDivision->id;
+//            }
+//        } else {
+//            $validatedDate['division_id'] = 0;
+//        }
+
 
         Worker::create($validatedDate);
 
@@ -57,6 +69,47 @@ class WorkersTable extends Component
         $this->resetInputFields();
 
         $this->emit('workerStore'); // Close model to using to jquery
+
+    }
+    public function updateWorker($id)
+    {
+
+$record=Worker::where('id',$id)->first();
+
+        $validatedDate = $this->validate([
+
+            'worker_name' => 'required|string|min:3|max:50',
+            'worker_surname' => 'required|string|min:3|max:50',
+            'worker_patronymic' => 'string|min:3|max:50',
+            'worker_email' => 'email',
+            'worker_email_spare' => 'email',
+            'worker_tel' => 'required|string|max:50',
+            'worker_tel_spare' => 'string|max:50',
+            'worker_position' => 'string|min:3|max:50',
+            'division_id' => 'string|min:3|max:50',
+
+
+        ]);
+
+
+//        if ($validatedDate['division_id'] <> '') {
+//            $findDivision = Division::where('division_name', $validatedDate['division_id'])->first();
+//            if (isset($findDivision)) {
+//
+//                $validatedDate['division_id'] = $findDivision->id;
+//            }
+//        } else {
+//            $validatedDate['division_id'] = 0;
+//        }
+
+
+        $record->update($validatedDate);
+
+        session()->flash('message', 'Работник успешно изменен');
+
+        $this->resetInputFields();
+
+        $this->emit('workerStore');
 
     }
     public function cancel()
@@ -112,6 +165,7 @@ class WorkersTable extends Component
 
 
         return view('livewire.workers-table', [
+            'update_mode' => $this->updateMode,
             'divisions' => $this->divisions,
             'workersSearch' => Worker::searchWorker($this->search)->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->perPage),

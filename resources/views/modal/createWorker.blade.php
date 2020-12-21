@@ -73,8 +73,14 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Закрыть</button>
-{{--                <button type="button" wire:click.prevent="deleteWorker({{$worker_id}})" class="btn btn-primary close-modal">Удалить</button>--}}
-                <button type="button" wire:click.prevent="storeWorker()" class="btn btn-primary close-modal">Добавить</button>
+                <button type="button" wire:click.prevent="deleteWorker({{$worker_id}})" class="btn btn-primary close-modal">Удалить</button>
+                @if($update_mode==false)
+                    <button type="button" wire:click.prevent="storeWorker()" class="btn btn-primary close-modal">Добавить</button>
+                @endif
+                @if($update_mode==true)
+                    <button type="button" wire:click.prevent="updateWorker({{$worker_id}})" class="btn btn-primary close-modal">Изменить</button>
+                @endif
+
             </div>
         </div>
     </div>
